@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/constants.js"></script>
+		<style>
+			#constants .left{
+				font-size: 16px;
+				font-weight: bold;
+				margin-left:5px ;
+			}
+			#constants .right{
+				margin-left: 100px;
+			}
+			#constants .right input{
+				width: 50px;
+			}
+			#constants .line {
+				margin-top: 5px;
+				margin-bottom: 3px;
+			}
+			#constants td{
+				width: 200px;
+				padding-left: 3px;
+			}
+			#constants table input{
+				width: 50px;
+			}
+		</style>
+	<div id="constants">
+		<div id="predict" class="easyui-panel" title="预计日期" style="width:100%">
+			<div class="line">
+			<span class="left" >断奶　　</span>   <span class="right"><input id="weaning" >产仔后天数</span>
+			</div>
+			<div class="line">
+			<span class="left" >妊娠　　</span>   <span class="right"><input id="gestation"  >天</span>
+			</div>
+			<div class="line">
+			<span class="left" >发情周期</span>   <span class="right"><input id="cycle" >天</span>
+			</div>
+		</div>
+		<p></p>
+		<div id="attention" class="easyui-panel" title="关注提示" style="width:100%">
+			<table>
+				<tr ><th>注意</th><th>开关</th><th>天数</th></tr>
+				<tr><td>验孕</td><td><input name="pregnancy_test" type="checkbox"></td><td><input id="pregnancy_test" >受精后天数</td></tr>
+				<tr><td>断奶</td><td><input name="weaning_attention" type="checkbox"></td><td><input id="weaning_attention">预期断奶前天数</td></td></tr>
+				<tr><td>产仔</td><td><input name="farrow_attentiong" type="checkbox"></td><td><input id="farrow_attentiong">预期分娩前天数</td></td></tr>
+			</table>
+		</div>
+	</div>
+	</body>
+</html>

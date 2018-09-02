@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/easyui.css">
+		<link rel="stylesheet" type="text/css" href="css/icon.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script src="js/index.js"   ></script>
+		<script>
+			var rigthPageOb = {};
+			rigthPageOb.init = function(){}
+			rigthPageOb.destroy = function(){}
+		</script>
+		<style>
+			html body{
+				width:99%;
+				height: 99%;
+			}
+			.Navigator li{
+				padding: 5px 0 5px 10px;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="main_layout" class="easyui-layout"  >
+			<div region="west" split="true" title="Navigator" style="width:150px; background-color: ;">
+				<ul class="Navigator" style="list-style:none; margin: 0;padding: 0;">
+					<li toHtml="panel">仪表盘</li>
+					<li toHtml="pasture">牧场</li>
+					<li toHtml="quickInput">快速输入</li>
+					<li toHtml="constants">常量设置</li>
+					<li toHtml="schedule">饲喂计划</li>
+					<li toHtml="calibration">校准</li>
+				</ul>
+			</div>
+			<div id="content" region="center" title="Language" style="padding:5px;" data-options="tools:'#tt'">
+				<div id="p" style="padding:10px;">
+				</div>
+			</div>
+			<div id="tt">
+				//TODO 栈  回退  
+				<a href="#" class="icon-back" onclick="javascript:backContent()"></a>   <span>&nbsp;&nbsp;</span> 
+				<a href="#" class="icon-reload" onclick="javascript:reloadContent()"></a>
+			</div>
+		</div>
+	</body>
+</html>

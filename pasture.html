@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/easyui.css">
+<link rel="stylesheet" type="text/css" href="css/icon.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+
+</head>
+<body>
+<script src="js/pasture.js"></script>
+
+<div id="pasture">
+	<div id="p" class="easyui-panel" title="" style="width:100%">
+		<p style="font-size:14px">动物总数：<span id="animalGross"></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="addAnimal" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加动物</a></p>
+	</div>
+	<table id="table" style="width: 100%;">
+	</table>
+	
+	<div id="aaw" closed="true" class="easyui-window" title="add animal"  style="width:500px;padding:10px;">
+		<p><div class="aawspan">产线:</div><input id="pl" ></p>
+		<p><div class="aawspan">产房:</div><input id="ap" disabled="true" type="text"></p>
+		<p><div class="aawspan">栏位编号:</div><input id="noInApartment" type="text"></p>
+		<p><div class="aawspan">受精日期:</div>
+			<input id="eventDate" class="easyui-datebox" ></input>
+		</p>
+		<div style="padding:5px;text-align:center;">
+			<a id="save" href="#" class="easyui-linkbutton" icon="icon-ok">Save</a>
+			<a id="cancel" href="#" class="easyui-linkbutton" icon="icon-cancel">Cancel</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

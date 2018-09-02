@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/calibration.js"></script>
+		<style>
+			#calibration .left{
+				font-size: 16px;
+				font-weight: bold;
+				margin-left:5px ;
+			}
+			#calibration .right{
+				margin-left: 100px;
+			}
+			#calibration .right input{
+				width: 50px;
+			}
+			#calibration .line {
+				margin-top: 5px;
+				margin-bottom: 3px;
+			}
+			#calibration td{
+				width: 200px;
+				padding-left: 3px;
+			}
+			#calibration table input{
+				width: 50px;
+			}
+		</style>
+	<div id="calibration">
+		<div id="predict" class="easyui-panel" title="预计日期" style="width:100%">
+			<div class="line">
+			<span class="left" >校准饲喂速率</span>   <span class="right"><input id="calibration" >克/分钟</span>
+			</div>
+			<a id="bt1" class="easyui-linkbutton"  >开始校准</a>
+		</div>
+	</div>
+	</body>
+</html>

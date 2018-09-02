@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/schedule.js"></script>
+		<style>
+			#schedule #page1 .title{
+				font-size: 24px;
+				color: #1B6D85;
+				margin-left: 10px;
+			}
+			#schedule  table input{
+				width: 60px;
+			}
+			#schedule #page3  .hour{
+				width: 20px;
+			}
+		</style>
+	<div id="schedule" style="width:100%;height: 100%;">
+		<div id="main_div" class="easyui-tabs" style="width:100%;height: 100%;">
+		    <div id="page1" title="饲喂量" >
+		    	<template id="template">
+		    		<tr class="tmpTr"><td><input type="number">天  </td><td> <input step="0.1" type="number" />千克</td></tr>
+		    	</template>
+				<span class="title">分娩前</span>
+				<div style="border-top: 1px solid #0E2D5F;">
+					<table id="tb1">
+						<tr><td>直到产仔 </td><td> <input step="0.1" type="number" />千克</td></tr>
+					</table>
+					<a id="bt1" class="easyui-linkbutton" data-options="iconCls:'icon-add'" >添加</a>
+				</div>
+				<span class="title">分娩后</span>
+				<div style="border-top: 1px solid #0E2D5F;">
+					<table id="tb2">
+						<tr><td>0 </td><td> <input step="0.1" type="number" />千克</td></tr>
+					</table>
+					<a id="bt2" class="easyui-linkbutton" data-options="iconCls:'icon-add'" >添加</a>
+				</div>
+				<div style="margin-top: 50px;;" ><a id="submitPage1" class="easyui-linkbutton">提交</a></div>
+		    </div>
+		    <div id="page2" title="调整"  >
+				<table>
+					<tr><td>绝对</td><td><input step="0.1" type="number"  id="offset_absolute" >千克</td></tr>
+					<tr><td>百分比</td><td><input  type="number" min="0" max="100" id="offset_relative" >%</td></tr>
+				</table>
+				<span style="color: #23527C;">提示：两个修正只有一个生效， 绝对>百分比</span>
+				<div style="height: 50px;"></div>
+				<table>
+				<tr><td>饲喂速度</td><td><input  type="number" min="1"  id="speed" >克/分钟</td></tr>
+				</table>
+		    </div>
+		    <div id="page3" title="饲喂分布" >
+		    	<template>
+		    		<tr><td><input ></td>
+					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
+					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
+					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
+					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
+					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
+					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
+					<td class="lastTd">X</td><td></td>
+				</tr>
+		    	</template>
+				<table>
+				<tr> <td>天</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+					<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+					<td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+					<td>23</td><td></td><td> </td>
+				</tr>	
+				</table>
+				<a id="bt3" class="easyui-linkbutton" data-options="iconCls:'icon-add'" >添加</a>
+				<div style="margin-top: 50px;;" align="center"><a id="bt4" class="easyui-linkbutton"  >提交</a></div>
+		    </div>
+		</div>
+	</div>
+	</body>
+</html>

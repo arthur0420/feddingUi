@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/quickInput.js"></script>
+		
+	<div id="quickInput">
+		<template style="display: none;" id="templateObject">
+			<div>
+				<!--
+                	作者：arthur0420@aliyun.com
+                	时间：2018-08-21
+                	描述：单个编号，多个编号用逗号隔开，或者区域，例如：1-6表示1号到6号，6个栏位。
+                -->
+			产线<input class="value"  />产房<input disabled="disabled" class="value" /> 编号<input  class="value" />
+			<a></a>
+			<a></a>
+			<!--<a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">.</a>
+			<a  href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-remove'">.</a>-->
+			</div>
+		</template>
+		<template style="display: none;" id="templateAction">
+			<div>
+			操作<input class="value"  /><input disabled="disabled"  class="value" />
+			<a></a>
+			<a></a>
+			<!--<a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">.</a>
+			<a  href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-remove'">.</a>-->
+			</div>
+		</template>
+		<div id="selectObject" class="easyui-panel" title="选择对象" style="width:100%">
+			
+		</div>
+		<p></p>
+		<div id="selectAction" class="easyui-panel" title="选择操作" style="width:100%">
+			
+		</div>
+		<div style="margin-top: 20px;" align="center"><a id="submit" href="#" class="easyui-linkbutton" >提交</a></div>
+	</div>
+	</body>
+</html>

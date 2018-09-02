@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/cellDetail.js"></script>
+		
+	<div id="cellDetail">
+		<div id="p" class="easyui-panel" title="" style="width:100%">
+			<p style="font-size:14px"><span id="eventName">-</span>：<span id="predictDays">-</span>天后&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="addAnimal" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加事件</a></p>
+		</div>
+		<table id="table" style="width: 100%;">
+		</table>
+	</div>
+	<div id="aaw" closed="true" class="easyui-window" title="add animal"  style="width:500px;padding:10px;">
+		<p><div class="aawspan">事件:</div><input id="event_no" ></p>
+		<p><div class="aawspan">公猪:</div><input id="boar"  type="text"></p>
+		
+		<p><div class="aawspan">日期:</div>
+			<input id="eventDate" class="easyui-datebox" ></input>
+		</p>
+		<p><div class="aawspan">执行者:</div><input id="executor" type="text"></p>
+		<p><div class="aawspan">备忘:</div><input id="result" type="text"></p>
+		<div style="padding:5px;text-align:center;">
+			<a id="save" href="#" class="easyui-linkbutton" icon="icon-ok">Save</a>
+			<a id="cancel" href="#" class="easyui-linkbutton" icon="icon-cancel">Cancel</a>
+		</div>
+	</div>	
+	</body>
+</html>
