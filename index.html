@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script src="js/kit.js"></script>
 		<script src="js/index.js"   ></script>
 		<script>
 			var rigthPageOb = {};
@@ -28,7 +29,7 @@
 	
 	<body>
 		<div id="main_layout" class="easyui-layout"  >
-			<div region="west" split="true" title="Navigator" style="width:150px; background-color: ;">
+			<div region="west" split="true" title="导航栏" style="width:200px;" data-options="tools:'#NaT'" >
 				<ul class="Navigator" style="list-style:none; margin: 0;padding: 0;">
 					<li toHtml="panel">仪表盘</li>
 					<li toHtml="pasture">牧场</li>
@@ -36,16 +37,20 @@
 					<li toHtml="constants">常量设置</li>
 					<li toHtml="schedule">饲喂计划</li>
 					<li toHtml="calibration">校准</li>
+					<li style="display: none;" class="userManagement" toHtml="userManagement" >用户管理</li>
+					<li class="modifyPsw" toHtml='modifyPsw' >修改密码</li>
 				</ul>
 			</div>
 			<div id="content" region="center" title="Language" style="padding:5px;" data-options="tools:'#tt'">
 				<div id="p" style="padding:10px;">
 				</div>
 			</div>
+			<div id="NaT">
+				<a id="quit" href="#" class="icon-cancel"  ></a>
+			</div>
 			<div id="tt">
-				//TODO 栈  回退  
-				<a href="#" class="icon-back" onclick="javascript:backContent()"></a>   <span>&nbsp;&nbsp;</span> 
-				<a href="#" class="icon-reload" onclick="javascript:reloadContent()"></a>
+				<a href="#" title="返回上一页" class="icon-back" onclick="javascript:backContent()"></a>   <span>&nbsp;&nbsp;</span> 
+				<a href="#" class="icon-reload" title="重新加载" onclick="javascript:reloadContent()"></a>
 			</div>
 		</div>
 	</body>
