@@ -1,5 +1,6 @@
 var config ={
-	url:"http://192.168.0.100:8081/EnterServlet"
+	url:"http://192.168.1.103:8080/EnterServlet"
+	// url:"http://127.0.0.1:8080/EnterServlet"
 //	url:"http://192.168.0.101:8080/feedingBus/EnterServlet"
 //url:"http://176.122.148.51:8080/feedingBus/EnterServlet"
 };
