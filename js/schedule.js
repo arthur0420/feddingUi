@@ -46,6 +46,7 @@ function init(){
 				inputs.eq(0).val(days);
 				inputs.eq(1).val(fodder);
 			}
+			inputchangePage1();
 		}else{
 			$.messager.alert("error",r.error_info);
 		}
@@ -60,6 +61,171 @@ function init(){
 			}
 		}
 		return true;
+	}
+	function inputchangePage1(){
+		var allinput = $("#page1").find("tr").find('input[step="0.1"]');
+		allinput.change(function(){
+			var val = $(this).val()*1;
+			val =  val.toFixed(1);
+			$(this).val(val);
+			chartInit();
+		});
+		var input0day1 = $("#tb1").find("tr").last().find('input');
+		var input0day2 = $("#tb2").find("tr").first().find('input');
+		input0day1.unbind("change");
+		input0day1.change(function(){
+			var val = $(this).val()*1;
+			val =  val.toFixed(1);
+			$(this).val(val);
+			input0day2.val(val);
+			chartInit();
+		})
+		input0day2.unbind("change");
+		input0day2.change(function(){
+			var val = $(this).val()*1;
+			val =  val.toFixed(1);
+			$(this).val(val);
+			input0day1.val(val);
+			chartInit(); 
+		})
+		chartInit();
+		// console.log(data);
+	}
+	function inputchangePage2(){
+		// var allinput = $("#page2").find("tr").find('input');
+		$("#offset_absolute").change(function(){
+			var val = $(this).val()*1;
+			val =  val.toFixed(1);
+			$(this).val(val);
+		});
+	}
+	function chartInit(){
+		var allinput = $("#page1").find("tr").find('input[step="0.1"]');
+		var input0day1 = $("#tb1").find("tr").last().find('input');
+		var input0day2 = $("#tb2").find("tr").first().find('input');
+		var day = [];
+		var weight = [];
+		var data = [];
+		
+		for(var i = 0 ;i<allinput.length;i++){
+			var one = allinput.eq(i);
+			if(one[0] == input0day1[0])continue;
+
+			var w =  one.val()*1;
+			if(one[0] == input0day2[0]) {
+				data.push({
+					d:0,
+					w:w
+				});
+				continue;
+			}
+			var d = one.parent().parent().find("input:eq(0)").val()*1;
+			var tid = one.parent().parent().parent().attr("id");
+			if(tid == 'tb1'){
+				d = -d;
+			}
+			data.push({
+				d:d,
+				w:w
+			});
+		}
+		data = data.sort(function(a,b){
+			if(a.d>b.d){
+				return 1;
+			}else{
+				return -1;
+			}
+		});
+		for(var i = 0 ; i<data.length;i++){
+			var one = data[i];
+			day.push(one.d);
+			weight.push(one.w);
+		}
+
+
+
+		var myChart = echarts.init(document.getElementById('chart'));
+		// var day = [];
+		// var weight = [];
+		 // 指定图表的配置项和数据
+		var option = {
+			title: {
+				text: '喂料曲线'
+			},
+			tooltip: {},
+			xAxis: {
+				data: day,
+				boundaryGap:false
+			},
+			yAxis: {},
+			series: [{
+				// name: '销量',
+				type: 'line',
+				data: weight
+			}]
+		};
+        myChart.setOption(option);
+	}
+	function inputchangePage3(){
+		var hour =  $("#page3").find(".hour");
+		hour.change(function(){
+			var tval = $(this).val();
+			if(tval == ''){
+				$(this).val("0");
+			}
+			var tr = $(this).parent().parent();
+			var thour = tr.find(".hour");
+			var sum = 0;
+			var count = -1;
+			for(var i = 0 ; i<thour.length ;i++){
+				var one = thour.eq(i);
+				var oneval = one.val()*1;
+				sum+=oneval;
+				if(oneval !=0){
+					count++;
+				}
+			}
+			var lastTd =tr.find("td").last();
+				lastTd.html(sum);
+			if(sum != 100){
+				lastTd.css("color","red");
+			}else{
+				lastTd.css("color","black");
+			}
+		/* 	if(sum > 100){
+				console.log(1);
+				// var sum = sum-100;
+				// var pre = (sum/count).toFixed(0)*1;
+				 	for(var i = 0 ; i<thour.length ;i++){
+					var one = thour.eq(i);
+					var oneval = one.val()*1;
+					if(oneval!=0  && one[0]!=$(this)[0] ){
+						if(count==1 ){
+							one.val(oneval-sum); 
+						}else{
+							one.val(oneval-pre); 
+							count--;
+							sum = sum - pre;
+						}
+					}
+				} 
+				var lastTd =tr.find("td").last();
+				lastTd.html(100);
+				lastTd.css("color","black");
+				window.setTimeout(function(p){
+					p.html("");
+				},3000,lastTd);
+			}else if(sum < 100){
+				
+			}else{
+				var lastTd =tr.find("td").last();
+				lastTd.html(100);
+				lastTd.css("color","black");
+				window.setTimeout(function(p){
+					p.html("");
+				},3000,lastTd);
+			} */
+		});
 	}
 /*	function getConstants(){
 		var data = {
@@ -89,18 +255,9 @@ function init(){
 			return ;
 		}
 	})
-	var input0day1 = $("#tb1").find("tr").last().find('input');
-	var input0day2 = $("#tb2").find("tr").first().find('input');
-	input0day1.change(function(){
-		var val = $(this).val();
-		input0day2.val(val);
-		console.log(1);
-	})
-	input0day2.change(function(){
-		var val = $(this).val();
-		input0day1.val(val);
-		console.log(2);
-	})
+	inputchangePage1();
+	inputchangePage2();
+	inputchangePage3();
 	$('#submitPage1').click(function(){ // 提交
 		var trs1 = $("#tb1").find("tr");
 		var trs2 = $("#tb2").find("tr");
@@ -190,12 +347,18 @@ function init(){
 	}
 	
 	function hourProcess(one,inputs){
+		var sum = 0;
 		for(var i = 1 ; i< 25 ;i++){
 			var ie =  inputs.eq(i);
 			var value = one["h"+(i-1)];
 			value = value==null?0:value;
 			$(ie).val(value);
+			sum += value*1;
 		}
+		var tr = inputs.eq(0).parent().parent();
+		var lastTd =tr.find("td").last();
+		lastTd.html(sum);
+		lastTd.css("color","black");
 	}
 	function hourSum(inputs){
 		var sum = 0;
@@ -219,6 +382,8 @@ function init(){
 		}
 		return obj;
 	}
+
+
 	function page3init(){
 		
 		var datap3 = {
@@ -226,7 +391,6 @@ function init(){
 			scheduleId:scheduleId
 		}
 		request(datap3,function(r){
-			console.log(r);
 			if(r.error_no=='0'){
 				var rdata = r.data;
 				var preE = new Array();
@@ -271,6 +435,8 @@ function init(){
 			$("#page3 .lastTd").click(function(){
 				$(this).parent().remove();
 			})
+
+			inputchangePage3();
 		},function(){})
 		$("#bt3").click(function(){
 			var html =  $("#page3 template").html();
@@ -313,7 +479,7 @@ function init(){
 				dataArray.push(one);
 			}
 			var dataStr = JSON.stringify(dataArray);
-			console.log(dataStr);
+			// console.log(dataStr);
 			
 			datap3 = {
 				funcNo:1015,

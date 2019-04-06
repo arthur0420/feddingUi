@@ -39,17 +39,21 @@
 					<a id="bt2" class="easyui-linkbutton" data-options="iconCls:'icon-add'" >添加</a>
 				</div>
 				<div style="margin-top: 50px;;" ><a id="submitPage1" class="easyui-linkbutton">提交</a></div>
+
+				<div id="chart" style="margin-top: 100px;width: 700px;height: 400px"></div>
+
 		    </div>
 		    <div id="page2" title="调整"  >
 				<table>
-					<tr><td>绝对</td><td><input step="0.1" type="number"  id="offset_absolute" >千克</td></tr>
-					<tr><td>百分比</td><td><input  type="number" min="0" max="100" id="offset_relative" >%</td></tr>
+					<tr><td>绝对提升</td><td><input step="0.1" type="number"  id="offset_absolute" >千克</td></tr>
+					<tr><td>百分比提升</td><td><input  type="number" min="0" max="100" id="offset_relative" >% 
+						 <span style="color: #23527C;"> (0为不调整；负数为减少，最高减少100%；正数为增加，无上限； </span></td></tr>
 				</table>
-				<span style="color: #23527C;">提示：两个修正只有一个生效， 绝对>百分比</span>
+				<span style="color: #23527C;">提示：两个修正只有一个生效， 绝对的优先级高于百分比 </span>
 				<div style="height: 50px;"></div>
-				<table>
+				<!-- <table>
 				<tr><td>饲喂速度</td><td><input  type="number" min="1"  id="speed" >克/分钟</td></tr>
-				</table>
+				</table> -->
 		    </div>
 		    <div id="page3" title="饲喂分布" >
 		    	<template>
@@ -60,18 +64,21 @@
 					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
 					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
 					<td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td><td><input class="hour" ></td>
-					<td class="lastTd">X</td><td></td>
+					<td class="lastTd"><input type="button" value="X"></td><td > </td>
 				</tr>
 		    	</template>
 				<table>
-				<tr> <td>天</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+				<tr> <td>天数</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
 					<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
 					<td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
-					<td>23</td><td></td><td> </td>
+					<td>23</td><td></td><td>sum</td>
 				</tr>	
 				</table>
 				<a id="bt3" class="easyui-linkbutton" data-options="iconCls:'icon-add'" >添加</a>
-				<div style="margin-top: 50px;;" align="center"><a id="bt4" class="easyui-linkbutton"  >提交</a></div>
+				<div style="margin-top: 50px;;" align="center"><a id="bt4" class="easyui-linkbutton"  >提交</a>  </div>
+				<div align="center">
+					<span style="color: #23527C;"> 提示:1.当“天数”为空时不能提交 2.当sum不等于100时不能提交 </span>
+				</div>
 		    </div>
 		</div>
 	</div>
