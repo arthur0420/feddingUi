@@ -141,9 +141,6 @@ function init(){
 			day.push(one.d);
 			weight.push(one.w);
 		}
-
-
-
 		var myChart = echarts.init(document.getElementById('chart'));
 		// var day = [];
 		// var weight = [];
