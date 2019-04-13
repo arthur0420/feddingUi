@@ -1,0 +1,45 @@
+ /*  html{
+        font-size: 100px;
+    }  */
+     /*   html font-size  = rem    ; em 为当前元素，往上继承的 font size 的大小。     */
+
+     .title{
+        height: 4rem;
+        font-size: 2rem;
+        line-height: 4rem;
+        background-color: cadetblue;
+    }
+    .back{
+        display: flex;
+        float: left;
+        
+    }
+    .bb{
+        /* font-size: 1rem; */
+        width: 14rem;  /* 300px */
+        height: 13rem;
+        border: solid 1px black;
+        display: inline-block;
+        margin: 2px 2px 2px 2px;
+        background-color: #F7F7F7;
+    }
+    .b1{
+       display: inline-block; 
+       width: 14rem;
+       height: 2rem;
+       line-height: 2rem;
+       font-size: 1.6rem;
+       font-weight: bold;
+       background-color: rgb(125, 205, 207);
+    }
+    .bm{
+       display: inline-block; 
+       width: 14rem;
+       height: 2rem;
+       line-height: 2rem;
+    }
+    .ag{
+        display:flex;
+        float: right;
+        font-size: 2rem;
+    }

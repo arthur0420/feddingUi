@@ -1,0 +1,36 @@
+<html >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./css/4ipad.css"></link>
+<script src="./js/jquery.js"></script>
+<script src="./js/kit.js"></script>
+<script src="./js/4ipad.js"></script>
+</head>
+<body>
+    <div id="page1">
+        <div align="center" class="title">牧场列表 </div>
+            <div id="list">
+            </div>
+
+        <div class="ag" ><span>动物总数：</span><span id="animalGross"></span></div>
+    </div>
+    <div style="display:none" id="page2">
+        <div align="center" class="title"><span class="back">返回</span><span id="page2_title_name">牧场列表</span> </div>
+            <div id="list">
+            </div>
+    </div>
+
+
+    <template id="temp1">
+            <div class="bb"  vid="{{id}}">
+                    <div align="center"  class="b1">{{pl_name_ap_name}}</div>
+                    <div align="center" class="bm">产仔/总量：{{delivery_fed}}</div>
+                    <div align="center" class="bm">当前进度：{{rate}}</div>
+                    <div align="center" class="bm">已增加：{{addGross}}</div>
+                    <div align="center" class="bm">已减少：{{minus}}</div>
+                    <div align="center" class="bm">无法饲喂：{{unableFeed}}</div>
+            </div>
+    </template>
+</body>
+</html>
