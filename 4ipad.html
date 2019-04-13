@@ -10,17 +10,21 @@
 <body>
     <div id="page1">
         <div align="center" class="title">牧场列表 </div>
-            <div id="list">
+            <div id="list1">
             </div>
 
         <div class="ag" ><span>动物总数：</span><span id="animalGross"></span></div>
     </div>
     <div style="display:none" id="page2">
-        <div align="center" class="title"><span class="back">返回</span><span id="page2_title_name">牧场列表</span> </div>
-            <div id="list">
+        <div align="center" class="title"><span class="back">返回</span><span id="page2_title_name"></span> </div>
+            <div id="list2">
             </div>
     </div>
-
+    <div style="display:none" id="page3">
+        <div align="center" class="title"><span class="back">返回</span><span id="page3_title_name"></span> </div>
+            <div id="list3">
+            </div>
+    </div>
 
     <template id="temp1">
             <div class="bb"  vid="{{id}}">
@@ -31,6 +35,16 @@
                     <div align="center" class="bm">已减少：{{minus}}</div>
                     <div align="center" class="bm">无法饲喂：{{unableFeed}}</div>
             </div>
+    </template>
+    <template id="temp2">
+        <div class="bb" index="{{index}}" vid="{{id}}">
+            <div align="center"  class="b1">栏位:{{no_in_apartment}}|{{have_animal_cn}}动物</div>
+            <div align="center" class="bm">{{schedule_name}}|天数:{{days}}</div>
+            <div align="center" class="bm">当前进度：{{fedRate}}</div>
+            <div align="center" class="bm">跳过：{{skip_time}}次</div>
+            <div align="center" class="bm">调整：{{offset}}%</div>
+            <div align="center" class="bm">饲喂开关：{{switch_cn}}</div>
+    </div>
     </template>
 </body>
 </html>
